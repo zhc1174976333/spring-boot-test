@@ -4,6 +4,22 @@ spring:
     url: jdbc:mysql://47.101.41.74:3306/test
     username: root
     password: root1234
+  thymeleaf:
+    cache: true
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: UTF-8
+    excluded-view-names:
+    prefix: classpath:templates/
+    reactive:
+      max-chunk-size:
+      media-types:
+    servlet:
+      content-type: text/html
+    suffix: .html
+    template-resolver-order:
+    view-names:
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.zhc.demo.entity

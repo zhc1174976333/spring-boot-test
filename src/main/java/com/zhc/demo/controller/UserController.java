@@ -3,14 +3,15 @@ package com.zhc.demo.controller;
 import com.zhc.demo.entity.UserEntity;
 import com.zhc.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -35,5 +36,11 @@ public class UserController {
             msg.append(";");
         }
         return msg.toString();
+    }
+
+    @RequestMapping(value="/getUserList", method = RequestMethod.GET)
+    public String getUserAll(ModelMap map){
+        map.addAttribute("userList", userService.findUserAll());
+        return "userList";
     }
 }
