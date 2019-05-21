@@ -19,9 +19,13 @@ spring:
       content-type: text/html
     suffix: .html
     template-resolver-order:
-    view-names:
+#    view-names:
+  mvc:
+    view:
+      prefix: classpath:templates/
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.zhc.demo.entity
 server:
-  port: 8081
+  port: 8088
+

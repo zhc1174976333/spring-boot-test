@@ -1,0 +1,2 @@
+1、注意@Controller和@RestController区别
+2、配置文件中view-names 需要注意

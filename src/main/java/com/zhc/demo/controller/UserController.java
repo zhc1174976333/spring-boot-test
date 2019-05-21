@@ -17,12 +17,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value="/index",method = RequestMethod.GET)
+    @RequestMapping(value="user/index",method = RequestMethod.GET)
     public String index(){
-        return "123";
+        return "index";
     }
 
-    @RequestMapping(value="/userList",method = RequestMethod.GET)
+    @RequestMapping(value="user/userList",method = RequestMethod.GET)
     public String findUserAll(){
         List<UserEntity> userEntityList = userService.findUserAll();
         if(CollectionUtils.isEmpty(userEntityList)){
@@ -38,7 +38,7 @@ public class UserController {
         return msg.toString();
     }
 
-    @RequestMapping(value="/getUserList", method = RequestMethod.GET)
+    @RequestMapping(value="user/getUserList", method = RequestMethod.GET)
     public String getUserAll(ModelMap map){
         map.addAttribute("userList", userService.findUserAll());
         return "userList";
