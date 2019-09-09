@@ -29,3 +29,10 @@ mybatis:
 server:
   port: 8088
 
+redis:
+  database: 2
+  host: 47.101.41.74
+  port: 6379
+  password: root1234
+
+

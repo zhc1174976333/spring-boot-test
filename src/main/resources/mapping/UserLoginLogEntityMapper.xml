@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhc.demo.dao.UserLoginLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.zhc.demo.entity.UserLoginLogEntity" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="login_time" property="loginTime" jdbcType="DATE" />
+    <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
+    <result column="login_effect_time" property="loginEffectTime" jdbcType="DATE" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zhc.demo.entity.UserLoginLogEntity" >
+    insert into t_test_login_log (id, user_id, login_time, 
+      login_ip, login_effect_time)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{loginTime,jdbcType=DATE}, 
+      #{loginIp,jdbcType=VARCHAR}, #{loginEffectTime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhc.demo.entity.UserLoginLogEntity" >
+    insert into t_test_login_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="loginEffectTime != null" >
+        login_effect_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=DATE},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginEffectTime != null" >
+        #{loginEffectTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+</mapper>
